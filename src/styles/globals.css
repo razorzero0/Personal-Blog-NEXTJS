@@ -5,14 +5,22 @@
 * {
   font-family: sans-serif;
 }
-.tes:hover > div {
-  @apply block absolute font-normal;
-}
-
-.tes > div {
-  @apply hidden;
-}
-
 .rotate-arrow {
   @apply duration-300 rotate-180;
+}
+
+.btn-hover {
+  @apply flex flex-col;
+}
+
+.btn-hover > span {
+  @apply w-0 h-2 self-center;
+}
+
+.btn-hover:hover > span {
+  @apply bg-black w-full h-2 rounded-lg duration-500;
+}
+
+.tag-name {
+  @apply rounded-xl border text-sm px-2  shadow-inner;
 }

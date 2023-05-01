@@ -1,44 +1,61 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleDown, faSortDown } from "@fortawesome/free-solid-svg-icons";
+import { faCircleDown, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import Link from "next/link";
+import Home from "..";
 export function Navbar() {
-  const [rotate, setRotate] = useState(false);
+  const [rotate, setRotate] = useState(0);
+  function turnRotate() {
+    rotate == 1 ? setRotate(0) : setRotate(1);
+  }
   return (
     <>
-      <div className="flex fixed w-full justify-around py-3  items-center font-semibold">
-        <div>
-          <h1>Blog</h1>
+      <div className="flex fixed w-full justify-around py-3 pt-4  items-center font-semibold bg-white/70 backdrop-blur-md  ">
+        <div className="btn-hover">
+          <h1>Ainun Blog</h1>
+          <span></span>
         </div>
         <ul className="flex gap-8">
-          <li>
+          <li className="btn-hover">
             <Link href={"./Home"}> Home </Link>
+            <span></span>
+          </li>
+          <li className="btn-hover">
+            <Link href={"./Home"}> Recent </Link>
+            <span></span>
           </li>
           <li
-            className="tes cursor-pointer "
-            onMouseEnter={() => setRotate(true)}
-            onMouseLeave={() => setRotate(false)}>
-            {" "}
+            className="group cursor-pointer "
+            onMouseEnter={() => turnRotate()}
+            onMouseLeave={() => turnRotate()}>
             Category
             <FontAwesomeIcon
               icon={faCircleDown}
               className={
-                rotate == true ? "rotate-arrow ml-1" : "ml-1 duration-300 "
+                rotate == 1
+                  ? "rotate-arrow ml-1 text-sm"
+                  : "ml-1 duration-300 text-sm"
               }
             />
-            <div className="bg-slate-300 p-1 rounded-md ">
-              <li>javascript</li>
-              <li>php</li>
-            </div>
+            <ul className="bg-white backdrop-blur-md hidden p-1 z-[999] rounded-md group-hover:block group-hover:absolute group-hover:font-normal">
+              <li className=" hover:bg-black hover:text-white p-2">
+                <Link href={"/"}>Javascript</Link>
+              </li>
+              <li className="hover:bg-black hover:text-white px-2 py-1">Php</li>
+            </ul>
           </li>
-          <li> About Us </li>
+          <li className="btn-hover">
+            <Link href={"./Home"}> About Us</Link>
+            <span></span>
+          </li>
         </ul>
-        <div>
-          <button className="w-24 h-10 rounded-lg bg-red-600 hover:bg-red-800 text-white">
-            {" "}
-            YouTube
-          </button>
-        </div>
+        <label className=" md:flex  hidden text-gray-400 focus-within:text-gray-800 relative">
+          <input className=" rounded-md border  px-2 w-40 h-8  focus:outline-none" />
+          <FontAwesomeIcon
+            icon={faSearch}
+            className="absolute top-2 -left-6  "
+          />
+        </label>
       </div>
     </>
   );
