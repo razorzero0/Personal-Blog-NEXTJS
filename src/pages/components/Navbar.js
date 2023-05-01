@@ -24,7 +24,7 @@ export function Navbar() {
             <span></span>
           </li>
           <li
-            className="group cursor-pointer "
+            className="group cursor-pointer relative "
             onMouseEnter={() => turnRotate()}
             onMouseLeave={() => turnRotate()}>
             Category
@@ -32,12 +32,12 @@ export function Navbar() {
               icon={faCircleDown}
               className={
                 rotate == 1
-                  ? "rotate-arrow ml-1 text-sm"
-                  : "ml-1 duration-300 text-sm"
+                  ? "rotate-arrow  text-sm ml-1 "
+                  : "duration-300 text-sm ml-1"
               }
             />
-            <ul className="bg-white backdrop-blur-md hidden p-1 z-[999] rounded-md group-hover:block group-hover:absolute group-hover:font-normal">
-              <li className=" hover:bg-black hover:text-white p-2">
+            <ul className="bg-white backdrop-blur-md hidden p-1 z-[999] rounded-md group-hover:-left-1 text-center group-hover:block group-hover:absolute group-hover:font-normal">
+              <li className=" hover:bg-black hover:text-white px-2 py-1">
                 <Link href={"/"}>Javascript</Link>
               </li>
               <li className="hover:bg-black hover:text-white px-2 py-1">
