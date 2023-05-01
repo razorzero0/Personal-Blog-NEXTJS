@@ -5,7 +5,7 @@ export default function Recent() {
   return (
     <>
       <div className="mt-20 mx-2 xl:mx-24 md:mx-10 my-8">
-        <h1 className="text-2xl text-gray-900 font-bold mb-8">
+        <h1 className="text-2xl text-gray-900 font-bold mb-8" id="recent">
           Recent Blog Post
         </h1>
         <div className="w-full flex flex-col md:flex-row gap-4">

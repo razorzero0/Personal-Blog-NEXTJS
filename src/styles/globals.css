@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  --scroll-behavior: smooth !important;
+  scroll-behavior: smooth !important;
+}
 * {
   font-family: sans-serif;
 }
@@ -18,7 +22,7 @@
 }
 
 .btn-hover:hover > span {
-  @apply bg-black w-full h-2 rounded-lg duration-500;
+  @apply bg-black w-full h-2 rounded-md duration-300;
 }
 
 .tag-name {

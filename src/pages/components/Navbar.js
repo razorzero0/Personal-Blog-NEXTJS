@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleDown, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import Link from "next/link";
-import Home from "..";
 export function Navbar() {
   const [rotate, setRotate] = useState(0);
   function turnRotate() {
@@ -17,11 +16,11 @@ export function Navbar() {
         </div>
         <ul className="flex gap-8">
           <li className="btn-hover">
-            <Link href={"./Home"}> Home </Link>
+            <Link href={"/"}> Home </Link>
             <span></span>
           </li>
           <li className="btn-hover">
-            <Link href={"./Home"}> Recent </Link>
+            <Link href={"#recent"}> Recent </Link>
             <span></span>
           </li>
           <li
@@ -41,7 +40,9 @@ export function Navbar() {
               <li className=" hover:bg-black hover:text-white p-2">
                 <Link href={"/"}>Javascript</Link>
               </li>
-              <li className="hover:bg-black hover:text-white px-2 py-1">Php</li>
+              <li className="hover:bg-black hover:text-white px-2 py-1">
+                <Link href={"/"}>PHP</Link>
+              </li>
             </ul>
           </li>
           <li className="btn-hover">
