@@ -1,12 +1,20 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleDown, faSearch } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-export function Navbar() {
+import { useRouter } from "next/router";
+export function Navbar({ name }) {
   const [rotate, setRotate] = useState(0);
   function turnRotate() {
     rotate == 1 ? setRotate(0) : setRotate(1);
   }
+
+  const router = useRouter();
+  function Search(v) {
+    router.push("/");
+    // name(v);
+  }
+
   return (
     <>
       <div className="flex fixed w-full justify-around py-3 pt-4  items-center font-semibold bg-white/70 backdrop-blur-md  ">
@@ -36,7 +44,7 @@ export function Navbar() {
                   : "duration-300 text-sm ml-1"
               }
             />
-            <ul className="bg-white backdrop-blur-md hidden p-1 z-[999] rounded-md group-hover:-left-1 text-center group-hover:block group-hover:absolute group-hover:font-normal">
+            <ul className="bg-white backdrop-blur-md hidden shadow-md  p-1 z-[999] rounded-md group-hover:-left-1 text-center group-hover:block group-hover:absolute group-hover:font-normal">
               <li className=" hover:bg-black hover:text-white px-2 py-1">
                 <Link href={"/"}>Javascript</Link>
               </li>
@@ -50,11 +58,14 @@ export function Navbar() {
             <span></span>
           </li>
         </ul>
-        <label className=" md:flex  hidden text-gray-400 focus-within:text-gray-800 relative">
-          <input className=" rounded-md border  px-2 w-40 h-8  focus:outline-none" />
+        <label className=" md:flex flex-row items-baseline  hidden text-gray-400 focus-within:text-gray-800 relative">
+          <input
+            className=" rounded-md border  px-2 w-40 h-8  focus:outline-none"
+            onChange={(e) => Search(e.target.value)}
+          />
           <FontAwesomeIcon
             icon={faSearch}
-            className="absolute top-2 -left-6  "
+            className="absolute  top-2 -left-7 cursor-pointer hover:bg-gray-900 hover:text-white hover:-left-9 hover:top-0 hover:p-2 "
           />
         </label>
       </div>

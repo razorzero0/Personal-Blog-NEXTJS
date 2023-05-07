@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import List from "./components/Recent/List";
 export default function Recent() {
   const a = [1, 2, 3, 4];
@@ -10,14 +11,16 @@ export default function Recent() {
         </h1>
         <div className="w-full flex flex-col md:flex-row gap-4">
           <div className="flex-1 ">
-            <div className="overflow-hidden  h-[400px] rounded-md ">
-              <Image
-                src={"https://picsum.photos/500/500"}
-                alt="gambar-article"
-                width={700}
-                height={700}
-              />
-            </div>
+            <Link href="Post">
+              <div className="overflow-hidden  h-[400px] rounded-md ">
+                <Image
+                  src={"https://picsum.photos/500/500"}
+                  alt="gambar-article"
+                  width={700}
+                  height={700}
+                />
+              </div>
+            </Link>
             <div className="flex flex-col my-3 gap-3">
               <p className="text-gray-500 ">Ainun | 1 January 2023</p>
               <h1 className="text-xl font-semibold">

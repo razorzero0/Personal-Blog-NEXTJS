@@ -28,3 +28,30 @@ html {
 .tag-name {
   @apply rounded-xl border text-sm px-2  shadow-inner;
 }
+
+.code {
+  @apply bg-slate-100 p-4 w-full;
+}
+
+/* ::-webkit-scrollbar {
+  width: 10px;
+} */
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #181717;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
+
+::-webkit-scrollbar-button {
+  background: black;
+}

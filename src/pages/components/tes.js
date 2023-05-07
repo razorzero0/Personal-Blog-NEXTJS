@@ -16,7 +16,7 @@ export default function Tes() {
   return (
     <>
       <div className="h-full m-10 justify-center items-center">
-        <SyntaxHighlighter language="" style={atomOneDark}>
+        <SyntaxHighlighter language="javascript" style={atomOneDark}>
           {codeString}
         </SyntaxHighlighter>
       </div>
