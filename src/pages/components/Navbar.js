@@ -1,10 +1,21 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleDown, faSearch } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCircleDown,
+  faSearch,
+  faGlobe,
+  faL,
+} from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import materi from "../Materi/Materi";
+import loading from "../../../public/loading.gif";
+import Image from "next/image";
+
 export function Navbar({ name }) {
   const [rotate, setRotate] = useState(0);
+  const [list, setList] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
   function turnRotate() {
     rotate == 1 ? setRotate(0) : setRotate(1);
   }
@@ -12,8 +23,19 @@ export function Navbar({ name }) {
   const router = useRouter();
   function Search(v) {
     router.push("/");
-    // name(v);
+    setList(true);
   }
+
+  const handleSearch = (v) => {
+    // Baca file JSON
+
+    setList(true);
+    const results = materi.filter((item) =>
+      item.judul.toLowerCase().includes(v)
+    );
+    const limitedResults = results.slice(0, 5);
+    setSearchResults(limitedResults);
+  };
 
   return (
     <>
@@ -28,7 +50,7 @@ export function Navbar({ name }) {
             <span></span>
           </li>
           <li className="btn-hover">
-            <Link href={"#recent"}> Recent </Link>
+            <Link href={"/#recent"}> Recent </Link>
             <span></span>
           </li>
           <li
@@ -45,28 +67,62 @@ export function Navbar({ name }) {
               }
             />
             <ul className="bg-white backdrop-blur-md hidden shadow-md  p-1 z-[999] rounded-md group-hover:-left-1 text-center group-hover:block group-hover:absolute group-hover:font-normal">
-              <li className=" hover:bg-black hover:text-white px-2 py-1">
-                <Link href={"/"}>Javascript</Link>
-              </li>
-              <li className="hover:bg-black hover:text-white px-2 py-1">
-                <Link href={"/"}>PHP</Link>
-              </li>
+              <Link href={"/#Javascript"}>
+                <li className=" hover:bg-black hover:text-white px-2 py-1">
+                  Javascript
+                </li>
+              </Link>
+              <Link href={"/#PHP"}>
+                <li className="hover:bg-black hover:text-white px-2 py-1">
+                  PHP
+                </li>
+              </Link>
             </ul>
           </li>
-          <li className="btn-hover">
+          {/* <li className="btn-hover">
             <Link href={"./Home"}> About Us</Link>
             <span></span>
-          </li>
+          </li> */}
         </ul>
         <label className=" md:flex flex-row items-baseline  hidden text-gray-400 focus-within:text-gray-800 relative">
           <input
             className=" rounded-md border  px-2 w-40 h-8  focus:outline-none"
-            onChange={(e) => Search(e.target.value)}
+            onChange={(e) => handleSearch(e.target.value)}
+            onBlur={async () =>
+              setTimeout(() => {
+                setList(false);
+              }, 1500)
+            }
           />
-          <FontAwesomeIcon
-            icon={faSearch}
-            className="absolute  top-2 -left-7 cursor-pointer hover:bg-gray-900 hover:text-white hover:-left-9 hover:top-0 hover:p-2 "
-          />
+          {list ? (
+            <div className="absolute mt-9  rounded-md shadow-md bg-white ">
+              <ul>
+                {searchResults.map((v) => {
+                  return (
+                    <Link key={v} href={`Post`}>
+                      <li className="text-[11px] my-2  border-b p-2">
+                        {v.judul}
+                      </li>
+                    </Link>
+                  );
+                })}
+              </ul>
+            </div>
+          ) : null}
+          {list ? (
+            <Image
+              className="absolute  top-3 -left-7 cursor-pointer"
+              src="https://media.tenor.com/VS20soWAM9AAAAAi/loading.gif"
+              alt="img"
+              width={22}
+              height={22}
+            />
+          ) : (
+            <FontAwesomeIcon
+              icon={faSearch}
+              className="absolute  top-2 -left-7 cursor-pointer hover:bg-gray-900 hover:text-white hover:-left-9 hover:top-0 hover:p-2 "
+            />
+          )}
         </label>
       </div>
     </>

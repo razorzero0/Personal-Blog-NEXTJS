@@ -29,9 +29,9 @@ html {
   @apply rounded-xl border text-sm px-2  shadow-inner;
 }
 
-.code {
+/* .code {
   @apply bg-slate-100 p-4 w-full;
-}
+} */
 
 /* ::-webkit-scrollbar {
   width: 10px;

@@ -1,12 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import List from "./components/Recent/List";
+import materi from "./Materi/Materi";
 export default function Recent() {
   const a = [1, 2, 3, 4];
   return (
     <>
       <div className="mt-20 mx-2 xl:mx-24 md:mx-10 my-8">
-        <h1 className="text-2xl text-gray-900 font-bold mb-8" id="recent">
+        <h1
+          className="text-2xl text-gray-900 font-bold mb-8 text-center"
+          id="recent">
           Recent Blog Post
         </h1>
         <div className="w-full flex flex-col md:flex-row gap-4">
@@ -22,15 +25,11 @@ export default function Recent() {
               </div>
             </Link>
             <div className="flex flex-col my-3 gap-3">
-              <p className="text-gray-500 ">Ainun | 1 January 2023</p>
-              <h1 className="text-xl font-semibold">
-                Perbandingan kecepatan antar PDO dan mysqli pada PHP
-              </h1>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-                autem veritatis, tempore incidunt ratione libero dolores debitis
-                amet in non veniam culpa dolor provident eos hic pariatur odit.
+              <p className="text-gray-500 ">
+                {materi[0].penulis} | {materi[0].tanggal}
               </p>
+              <h1 className="text-xl font-semibold">{materi[0].judul}</h1>
+              <p>{materi[0].deskripsi}</p>
             </div>
             <div className="flex gap-3">
               <span className="tag-name">PHP</span>
