@@ -3,10 +3,10 @@ import Link from "next/link";
 import List from "./components/Recent/List";
 import materi from "./Materi/Materi";
 export default function Recent() {
-  const a = [1, 2, 3, 4];
+  const post = materi.slice(0, 3);
   return (
     <>
-      <div className="mt-20 mx-2 xl:mx-24 md:mx-10 my-8">
+      <div className="pt-20 mx-2 xl:mx-24 md:mx-10 my-8">
         <h1
           className="text-2xl text-gray-900 font-bold mb-8 text-center"
           id="recent">
@@ -26,10 +26,10 @@ export default function Recent() {
             </Link>
             <div className="flex flex-col my-3 gap-3">
               <p className="text-gray-500 ">
-                {materi[0].penulis} | {materi[0].tanggal}
+                {post[0].penulis} | {post[0].tanggal}
               </p>
-              <h1 className="text-xl font-semibold">{materi[0].judul}</h1>
-              <p>{materi[0].deskripsi}</p>
+              <h1 className="text-xl font-semibold">{post[0].judul}</h1>
+              <p>{post[0].deskripsi}</p>
             </div>
             <div className="flex gap-3">
               <span className="tag-name">PHP</span>
@@ -38,9 +38,7 @@ export default function Recent() {
             </div>
           </div>
           <div className="flex-1 flex flex-col md:gap-0 gap-4 md:justify-between">
-            <List />
-            <List />
-            <List />
+            <List data={post} />;
           </div>
         </div>
       </div>

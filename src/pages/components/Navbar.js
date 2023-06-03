@@ -99,7 +99,7 @@ export function Navbar({ name }) {
               <ul>
                 {searchResults.map((v) => {
                   return (
-                    <Link key={v} href={`Post`}>
+                    <Link key={v} href={`Post/${v.id}`}>
                       <li className="text-[11px] my-2  border-b p-2">
                         {v.judul}
                       </li>
