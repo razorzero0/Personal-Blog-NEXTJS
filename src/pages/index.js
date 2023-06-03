@@ -4,6 +4,7 @@ import Hero from "./Hero";
 import Recent from "./Recent";
 import Kategori from "./Kategori";
 import Footer from "./components/Footer";
+import Stack from "./Stack";
 export default function Home() {
   return (
     <>
@@ -13,6 +14,7 @@ export default function Home() {
         <Recent />
         <Kategori title={"Javascript"} />
         <Kategori title={"PHP"} />
+        <Stack />
         <Footer />
       </div>
     </>
