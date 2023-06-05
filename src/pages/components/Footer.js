@@ -1,8 +1,4 @@
-import {
-  faVoicemail,
-  faMailBulk,
-  faContactBook,
-} from "@fortawesome/free-solid-svg-icons";
+import { faMailBulk, faContactBook } from "@fortawesome/free-solid-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { GitHub, Linkedin } from "react-feather";

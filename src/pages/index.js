@@ -1,5 +1,5 @@
 import Tes from "./components/tes";
-import { Navbar } from "./components/Navbar";
+import Navbar from "./components/Navbar";
 import Hero from "./Hero";
 import Recent from "./Recent";
 import Kategori from "./Kategori";

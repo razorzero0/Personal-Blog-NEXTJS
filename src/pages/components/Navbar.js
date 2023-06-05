@@ -1,18 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCircleDown,
-  faSearch,
-  faGlobe,
-  faL,
-} from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "react";
+import { faCircleDown, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import materi from "../Materi/Materi";
-import loading from "../../../public/loading.gif";
 import Image from "next/image";
 
-export function Navbar({ name }) {
+export default function Navbar({ post }) {
   const [rotate, setRotate] = useState(0);
   const [list, setList] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
@@ -21,10 +15,6 @@ export function Navbar({ name }) {
   }
 
   const router = useRouter();
-  function Search(v) {
-    router.push("/");
-    setList(true);
-  }
 
   const handleSearch = (v) => {
     // Baca file JSON
@@ -79,10 +69,6 @@ export function Navbar({ name }) {
               </Link>
             </ul>
           </li>
-          {/* <li className="btn-hover">
-            <Link href={"./Home"}> About Us</Link>
-            <span></span>
-          </li> */}
         </ul>
         <label className=" md:flex flex-row items-baseline  hidden text-gray-400 focus-within:text-gray-800 relative">
           <input
@@ -99,7 +85,7 @@ export function Navbar({ name }) {
               <ul>
                 {searchResults.map((v) => {
                   return (
-                    <Link key={v} href={`Post/${v.id}`}>
+                    <Link key={v.id} href={`/Post/${v.id}`}>
                       <li className="text-[11px] my-2  border-b p-2">
                         {v.judul}
                       </li>
@@ -112,7 +98,7 @@ export function Navbar({ name }) {
           {list ? (
             <Image
               className="absolute  top-3 -left-7 cursor-pointer"
-              src="https://media.tenor.com/VS20soWAM9AAAAAi/loading.gif"
+              src="/img/loading.gif"
               alt="img"
               width={22}
               height={22}

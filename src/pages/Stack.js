@@ -10,7 +10,7 @@ export default function Stack() {
         Tech Stack
       </h1>
       <Marquee
-        className="h-36"
+        className="  "
         gradient={true}
         gradientColor={[255, 255, 255]}
         speed={100}>
@@ -19,15 +19,15 @@ export default function Stack() {
           alt="img"
           width={100}
           height={50}
-          className="mx-16"
+          className="mx-10"
         />
-        <div className="">
+        <div className=" h-full p-5">
           <Image
             src={"/next.svg"}
             alt="img"
             width={150}
             height={100}
-            className="mx-16 p-5"
+            className=" mx-10 p-5"
           />
         </div>
         <Image
@@ -35,36 +35,37 @@ export default function Stack() {
           alt="img"
           width={100}
           height={50}
-          className="mx-16"
+          className=" mx-10"
         />
         <Image
           src={"/img/git.png"}
           alt="img"
           width={100}
           height={50}
-          className="mx-16"
+          className=" mx-10"
         />
-        <Image
-          src={"/img/css.jpeg"}
-          alt="img"
-          width={100}
-          height={50}
-          className="mx-16"
-        />
+
         <Image
           src={"/img/fa.png"}
           alt="img"
           width={100}
           height={50}
-          className="mx-16"
+          className=" mx-10"
         />
-        <div className=" ">
+        <Image
+          src={"/img/tailwind.png"}
+          alt="img"
+          width={100}
+          height={50}
+          className=" mx-10"
+        />
+        <div className="  ">
           <Image
             src={"/img/react.png"}
             alt="img"
             width={200}
             height={50}
-            className="mx-16 p-6 "
+            className=" mx-10 p-6 "
           />
         </div>
       </Marquee>

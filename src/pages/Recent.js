@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import List from "./components/Recent/List";
 import materi from "./Materi/Materi";
 export default function Recent() {
   const post = materi.slice(0, 3);
@@ -13,18 +12,18 @@ export default function Recent() {
           Recent Blog Post
         </h1>
         <div className="w-full flex flex-col md:flex-row gap-4">
-          <div className="flex-1 ">
-            <Link href="Post">
-              <div className="overflow-hidden  h-[400px] rounded-md ">
+          <div className="flex-1 shadow-md p-2">
+            <Link href={`Post/${post[0].id}`}>
+              <div className="overflow-hidden  rounded-md ">
                 <Image
-                  src={"https://picsum.photos/500/500"}
+                  src={"https://source.unsplash.com/800x600/?progamming"}
                   alt="gambar-article"
                   width={700}
                   height={700}
                 />
               </div>
             </Link>
-            <div className="flex flex-col my-3 gap-3">
+            <div className="flex flex-col my-3 gap-3 ">
               <p className="text-gray-500 ">
                 {post[0].penulis} | {post[0].tanggal}
               </p>
@@ -38,7 +37,35 @@ export default function Recent() {
             </div>
           </div>
           <div className="flex-1 flex flex-col md:gap-0 gap-4 md:justify-between">
-            <List data={post} />;
+            {post.map((v) => {
+              return (
+                <Link key={v.id} href={`Post/${v.id}`}>
+                  <div className="flex gap-3 md:max-h-48 shadow-md rounded-sm p-2">
+                    <div className="overflow-hidden  h-full rounded-md   ">
+                      <Image
+                        src={`https://source.unsplash.com/400x300/?${v.kategori}`}
+                        alt="gambar-article"
+                        width={500}
+                        height={400}
+                        className="h-full object-cover w-full"
+                      />
+                    </div>
+                    <div className="flex flex-col gap-3">
+                      <p className="text-gray-500 text-xs">
+                        {v.penulis} | {v.tanggal}
+                      </p>
+                      <h1 className="text-sm font-semibold">{v.judul}</h1>
+                      <p className="text-sm">{v.deskripsi}</p>
+                      <div className="md:flex gap-3 hidden">
+                        <span className="tag-name">{v.kategori}</span>
+                        <span className="tag-name">IT</span>
+                        <span className="tag-name">Code</span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>

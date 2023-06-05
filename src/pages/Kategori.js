@@ -1,12 +1,6 @@
-import Marquee from "react-fast-marquee";
-import List from "./components/Recent/List";
 import materi from "./Materi/Materi";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 
-// Import Swiper styles
-import "swiper/css";
 import Link from "next/link";
 
 export default function Kategori({ title }) {
@@ -24,7 +18,7 @@ export default function Kategori({ title }) {
                 pathname: "/Post/[id]",
                 query: { id: v.id },
               }}
-              key={v}>
+              key={v.id}>
               <div className="md:w-64 md:h-58 w-full shadow-md p-2 rounded-md my-2">
                 <h1
                   className="text-md font-bold  text-black my-2 
@@ -33,7 +27,9 @@ export default function Kategori({ title }) {
                 </h1>
                 <Image
                   className="w-full"
-                  src={"https://picsum.photos/350/200"}
+                  src={`https://source.unsplash.com/350x200/?${
+                    v.kategori + " " + v.judul
+                  }`}
                   alt="img"
                   width={350}
                   height={200}
