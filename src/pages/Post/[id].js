@@ -24,10 +24,10 @@ export default function Post() {
 
         <div className="my-28 mx-4  xl:mx-72">
           <h1 className="text-center text-xl xl:text-4xl font-semibold my-1 xl:my-3">
-            {id ? materi[id].judul : "loading..."}
+            {router ? materi[id].judul : "loading..."}
           </h1>
           <p className="text-gray-500 text-center text-sm xl:text-md mb-2">
-            {id ? materi[id].tanggal : "loading..."}
+            {router ? materi[id].tanggal : "loading..."}
           </p>
           <div className="overflow-hidden flex justify-center w-full h-[400px] mb-4">
             <Image
